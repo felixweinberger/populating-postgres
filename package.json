@@ -1,0 +1,27 @@
+{
+  "name": "PopulatingPostgres",
+  "version": "1.0.0",
+  "description": "Can we populate a local postgres instance with 10M records in under an hour? Faster?",
+  "main": "db.config.js",
+  "scripts": {
+    "db:init": "psql -d 'trailblazers_reviews' -c 'CREATE TABLE reviews ( id serial, product_id int, rating int, reviewer varchar(255), title varchar(255), body text, recommend boolean, helpful int, unhelpful int, posting_date date, PRIMARY KEY (id));'",
+    "db:setup": "node ./db.config.js",
+    "db:clean": "psql -d 'trailblazers_reviews' -c 'DROP TABLE reviews;'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szerfas1/PopulatingPostgres.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szerfas1/PopulatingPostgres/issues"
+  },
+  "homepage": "https://github.com/szerfas1/PopulatingPostgres#readme",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "pg": "^7.6.1"
+  }
+}
